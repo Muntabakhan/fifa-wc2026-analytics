@@ -55,3 +55,33 @@ Assigns 16 row-sets to 16 stadiums to **maximise total popularity value**
 Nations are scored 0–100 on expected overseas supporter share. Host nations
 (USA, Mexico, Canada) are fixed at 100. For nations not in Qatar 2022, the
 index is estimated as:
+I_nation = min(100, I_ref × (G_nation / G_ref))
+
+where `I_ref` is a confederation reference nation's index and `G` is IMF
+2026 GDP per capita.
+
+## Tournament Overview
+
+- **48 teams** across **12 groups** of 4
+- **16 stadiums** — 11 USA, 3 Mexico, 2 Canada
+- **Host nations** (USA, Mexico, Canada) auto-seeded to Pot 1
+
+## Tech Stack
+
+- Python
+- [Pyomo](http://www.pyomo.org/) — optimisation modelling
+- GLPK — solver
+- pandas, numpy
+
+## Setup
+
+```bash
+pip install pyomo pandas numpy
+# Install GLPK: https://www.gnu.org/software/glpk/
+```
+
+## Reference
+
+Ghoniem, A., Ali, A.I., Al-Salem, M. and Khallouli, W. (2017) 'Prescriptive
+analytics for FIFA World Cup lodging capacity planning', *Journal of the
+Operational Research Society*, 68(10), pp. 1183–1194.
